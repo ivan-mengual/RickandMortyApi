@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="title bg-green-200">
-        <h1>The Rick and Morty API</h1>
+        <h1>The Rick and Morty APIlicueta</h1>
       </div>
       <div class="content">
           <div v-for="character in characters" class="card">
