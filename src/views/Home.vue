@@ -23,29 +23,29 @@
       <div class="content bg-zinc-800 grid grid-cols-3 gap-6 p-6 pt-20"> 
           <div v-for="character in characters" class="card flex  h-52 bg-zinc-700 rounded-lg overflow-hidden">
 
-            <a class="image" v-bind:href="'/detail?id='+ character.id">
-              <img :src="character.image"/>
+            <a class="w-52 h-52" v-bind:href="'/detail?id='+ character.id">
+              <img class="image block w-full h-full" :src="character.image"/>
 
             </a>
             
-            <div class="text">
+            <div class="text flex flex-col p-3 w-fit h-auto justify-between ">
 
-              <div class="section_start">
-                <a v-bind:href="'/detail?id='+ character.id"> {{character.name}}</a>
-                <div class="status">
+              <div class="section_start flex flex-col items-start">
+                <a class="text-2xl font-bold text-left" v-bind:href="'/detail?id='+ character.id"> {{character.name}}</a>
+                <div class="status flex text-white items-center">
                   <span v-bind:class="getStatusClass(character.status)"></span>
                   {{character.status}}  
                 </div>
                 
               </div>
 
-              <div class="section_center">
-                <span>Origin:</span>
+              <div class="section_center flex flex-col items-start">
+                <span class="text-gray-400 font-bold" >Origin:</span>
                 <a v-bind:href="'/detail?id='+ character.id"> {{character.origin.name}}</a>
               </div>
 
-              <div class="section_end">
-                <span>Specie:</span>
+              <div class="section_end flex flex-col items-start">
+                <span class="text-gray-400 font-bold" >Specie:</span>
                 <a v-bind:href="'/detail?id='+ character.id"> {{character.species}}</a>
               </div>
               
@@ -71,10 +71,10 @@ export default {
     methods:{
       getStatusClass: (status) => {
         return {
-          icon:true,
-          "icon-green": status == "Alive",
-          "icon-gray": status == "unknown",
-          "icon-red": status == "Dead"
+          "block w-2 h-2 rounded-full mr-2":true,
+          "bg-green-500": status == "Alive",
+          "bg-gray-500": status == "unknown",
+          "bg-red-500": status == "Dead"
         }
       }
     },
@@ -99,72 +99,5 @@ export default {
     }  
   }
   
-  .content{
-    
-
-    .card{
-      // width: 550px;
-      // height: 200px;
-      // display: flex;
-      // overflow: hidden;
-      // background: rgb(60, 62, 68);
-      // border-radius: 0.5rem;
-      // margin: 0.75rem;
-      // box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
-      
-      .image img{
-        // display: block;
-        // width: 100%;
-        // height: 100%;
-        // margin: 0px;
-        // opacity: 1;
-        // transition: opacity 0.5s ease 0s;
-        // object-position: center center;
-        // object-fit: cover;
-        // padding: 0;
-
-      }
-      .text{
-        // font-size: 1.5rem;
-        // flex: 3 1 0%;
-        // position: relative;
-        // padding: 0.75rem;
-        // color: rgb(255, 255, 255);
-        // display: flex;
-        // flex-direction: column;
-        // font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
-        // font-weight: 800;
-
-        .section_start{
-          justify-content: flex-start;
-          .status{
-            display: flex;
-            align-items: center;
-            text-transform: capitalize;
-            .icon{
-              height: 0.5rem;
-              width: 0.5rem;
-              margin-right: 0.375rem;
-              border-radius: 50%;
-            }
-            .icon-green{
-              background: green;
-            }
-            .icon-gray{
-              background: gray;
-            }
-            .icon-red{
-              background: red;
-            }
-          }
-        }
-        
-      }    
-    }
-  }
-    
-    
-
-
 
 </style>
